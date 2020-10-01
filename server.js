@@ -41,13 +41,12 @@ const server = app.listen(
   PORT,
   console.log(
     `\nThe server is running in ${process.env.NODE_ENV} mode on port ${PORT}`
-      .brightBlue.bold
+      .blue.bold
   )
 );
 
 //Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
   console.log(`Error: ${err.message}`.red.bold.underline);
-  //close server and exit process
   server.close(() => process.exit(1));
 });
